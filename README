@@ -1,0 +1,82 @@
+meta-rpi-qemuarm64
+==================
+
+The purpose of this layer is to run qemuarm64 with kvm on raspberrypi4-64.
+
+CPU architectures of many SoC are aarch64.  
+However, in many cases, development boards cannot be distributed to all developpers.  
+So, an emulator like qemu is very useful for development, but qemuarm64 is slow on x86-64.
+
+By using kvm of raspberrypi4-64, qemuarm64 may become faster and more useful platform to test and develop.
+
+To build this image, the custon crops/poky container is used.
+
+* https://github.com/KZYSAKYM/poky-container.git
+
+Please see the corresponding sections below for details.
+
+Dependencies
+============
+
+* URI: git://git.yoctoproject.org/poky
+  * branch: dunfell
+  * revision: HEAD
+
+* URI: git://git.openembedded.org/meta-openembedded
+  * layers: meta-oe, meta-multimedia, meta-networking, meta-python
+  * branch: dunfell
+  * revision: HEAD
+
+* URI: git://git.openembedded.org/meta-openembedded
+  * layers: meta-oe, meta-multimedia, meta-networking, meta-python
+  * branch: dunfell
+  * revision: HEAD
+
+* URI: https://github.com/agherzan/meta-raspberrypi.git
+  * layers: meta-raspberrypi
+  * branch: dunfell
+  * revision: HEAD
+
+Contribution
+============
+
+Please submit any contributions against the meta-rpi-qemuarm64 layer to the Github issue.
+
+Maintainer: KZYSAKYM <akiyama.kazuyoshi.64w@gmail.com>
+
+Table of Contents
+=================
+
+  I. Status
+ II. Quick Start
+
+I. Status
+=================================================
+
+* WIP: enable KVM
+* TODO: enable qemu virgl 3d accelration
+* TODO: create repo manifests
+* TODO: adb integration
+* TODO: prepare test images running on qemuarm64
+
+II. Quick Start
+=================================================
+
+Please install and setup docker before execute the below.
+
+```
+$ git clone https://github.com/KZYSAKYM/poky-container.git
+$ cd poky-container
+$ make image
+# setup your environment
+$ vim setup-env
+# setup your build script
+$ vim build.sh
+# create your workdir
+$ mkdir $HOME/work -p
+# copy your build script
+$ cp build.sh $HOME/work
+# run poky-container
+$ make build
+```
+
