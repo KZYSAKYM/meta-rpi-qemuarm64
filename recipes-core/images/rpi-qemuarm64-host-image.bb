@@ -15,7 +15,7 @@ REQUIRED_DISTRO_FEATURES = "wayland opengl systemd"
 DISTRO_FEATURES_append = " wayland opengl systemd x11"
 MACHINE_FEATURES_append = " vc4graphics"
 
-IMAGE_INSTALL_append = " qemu"
+IMAGE_INSTALL_append = " qemu android-tools"
 
 # rpi peripheral configuration
 VIDEO_CAMERA = "1"
