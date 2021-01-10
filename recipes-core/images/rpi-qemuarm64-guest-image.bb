@@ -14,5 +14,7 @@ REQUIRED_DISTRO_FEATURES = "wayland opengl systemd"
 
 DISTRO_FEATURES_append = " wayland opengl systemd"
 
+IMAGE_INSTALL_append = " android-tools"
+
 # Image fs types
 IMAGE_FSTYPES = " ext4"
